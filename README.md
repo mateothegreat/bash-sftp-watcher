@@ -8,3 +8,6 @@ upload them via sftp.
 
 Usage: sftp-watcher.sh [-v] -s <source_dir_path> -d <destination_host> -p <destination_path>
 ```
+
+## See Also
+* SFTP Server: https://hub.docker.com/r/atmoz/sftp/
