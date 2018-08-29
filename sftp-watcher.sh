@@ -8,20 +8,6 @@ DESTINATION_PATH=""         # Root directory to send files to on the destination
 TEMPORARY_DIR_PATH="./tmp"  # Temporary directory used to drop failed copies into.
 
 #
-# This function will display help information about this
-# script with the -h argument is passed.
-#
-show_help() {
-
-    echo "Daemon to watch local directory for changes and"
-    echo "upload them via sftp."
-    echo
-    echo "Usage: `basename $0` [-v] -s <source_dir_path> -u <sftp_username> -h <destination_host> -p <destination_path> -t <temporary_path>"
-    echo
-
-}
-
-#
 # Helper function
 #
 function get_date() {
@@ -33,7 +19,7 @@ function get_date() {
 #
 # Parse options passed to this script.
 #
-while getopts ":s:u:h:P:p:t:v:" opt; do
+while getopts ":s:u:h:P:p:t:v" opt; do
 
   case $opt in
 
@@ -45,8 +31,7 @@ while getopts ":s:u:h:P:p:t:v:" opt; do
     p) DESTINATION_PATH=$OPTARG     ;;
     t) TEMPORARY_DIR_PATH=$OPTARG   ;;
 
-    \?) echo "Invalid option: -$OPTARG" >&2
-      ;;
+    \?) echo "Invalid option: -$OPTARG" >&2 ;;
 
   esac
 
